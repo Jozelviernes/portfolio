@@ -26,7 +26,7 @@ const projects = [
   {
     title: "ASCOT Scholarship Management System",
     description: "Developed a desktop Student Scholarship Management System using Java Swing and MySQL. The system manages student records and scholarship assignments with real-time updates, automated tracking of scholarship slots, and search/filter functions for efficient data retrieval. This project highlights skills in Java GUI development and database management.",
-    thumbnailSrc: "./public/scholarship1.png",
+    thumbnailSrc: "./scholarship1.png",
     images: ["./scholarship.png", "./scholarship1.png", "./scholarship2.png"],
       techStack:[{ name:"Java",
         imgSrc:"./java.svg"
