@@ -1,12 +1,25 @@
-# React + Vite
+Jozel M. Viernes Portfolio
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A personal portfolio website built with ReactJS to showcase projects, skills, and contact information.
 
-Currently, two official plugins are available:
+🔹 Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Hero Section: Introduces the developer with a brief professional statement.
 
-## Expanding the ESLint configuration
+Tech Stack: Highlights front-end and back-end technologies used.
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Projects Section: Displays portfolio projects with descriptions, tech stacks, and live links.
+
+Contact Page: Provides a simple way to get in touch.
+
+Responsive Design: Works smoothly on desktop and mobile devices.
+
+Fixed Header & Scroll Spy: Navigation highlights active sections while scrolling.
+
+🔹 Technologies Used
+
+Frontend: ReactJS, Tailwind CSS
+
+Deployment: Vercel (live preview available)
+
+Other Tools: Axios, Vite
