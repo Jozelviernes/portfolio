@@ -48,7 +48,7 @@ Welcome to my Portfolio! I'm a passionate full-stack developer who loves craftin
         <div className="order-1 lg:order-2">
           <img
             data-aos="zoom-in-up"
-            src="../../public/jozel1.jpg"
+            src="./jozel1.jpg"
             alt="Jozel M. Viernes"
             className="w-64 h-64 sm:w-80 sm:h-80 lg:w-96 lg:h-96 rounded-full shadow-xl border-4 border-violet-400 shadow-violet-300 custom-shape object-cover"
           />

@@ -2,29 +2,29 @@ export function Techstack() {
   const techs = [
     {
       name: "Html",
-      imgSrc: "../../public/html5.svg",
+      imgSrc: "./html5.svg",
     },
     {
       name: "Css",
-      imgSrc: "../../public/css3.svg"
+      imgSrc: "./css3.svg"
     }, {
       name: "Javascript",
-      imgSrc: "../../public/javascript.svg"
+      imgSrc: "./javascript.svg"
     }, {
       name: "Tailwind",
-      imgSrc: "../../public/tailwindcss.svg"
+      imgSrc: "./tailwindcss.svg"
     }, {
       name: "Bootstrap",
-      imgSrc: "../../public/bootstrap.svg"
+      imgSrc: "./bootstrap.svg"
     }, {
       name: "ReactJS",
-      imgSrc: "../../public/react.svg"
+      imgSrc: "./react.svg"
     }, {
       name: "PHP",
-      imgSrc: "../../public/php.svg"
+      imgSrc: "./php.svg"
     }, {
       name: "MySQL",
-      imgSrc: "../../public/mysql.svg"
+      imgSrc: "./mysql.svg"
     }
   ];
 

@@ -14,44 +14,44 @@ const projects = [
   {
     title: "Enrollment System (Techroll)",
     description: "Enrollment SystemDesigned and implemented a web-based enrollment system using PHP and MySQL to streamline student registration and subject enrollment processes. Key features include user authentication, specialization selection (Application Programming or Digital Design), admin approval workflows, and automated PDF report generation using mPDF. The system enhances administrative efficiency and improves student onboarding.",
-    thumbnailSrc: "../../public/techroll.png",
-    images: ["../../public/techroll.png", "../../public/techroll1.png"],
+    thumbnailSrc: "./techroll.png",
+    images: ["./techroll.png", "./techroll1.png"],
       techStack:[{ name:"php",
-        imgSrc:"../../public/php.svg"
+        imgSrc:"./php.svg"
     },{
          name:"mysql",
-        imgSrc:"../../public/mysql.svg"
+        imgSrc:"./mysql.svg"
     }]
   },
   {
     title: "ASCOT Scholarship Management System",
     description: "Developed a desktop Student Scholarship Management System using Java Swing and MySQL. The system manages student records and scholarship assignments with real-time updates, automated tracking of scholarship slots, and search/filter functions for efficient data retrieval. This project highlights skills in Java GUI development and database management.",
-    thumbnailSrc: "../../public/scholarship1.png",
-    images: ["../../public/scholarship.png", "../../public/scholarship1.png", "../../public/scholarship2.png"],
+    thumbnailSrc: "./public/scholarship1.png",
+    images: ["./scholarship.png", "./scholarship1.png", "./scholarship2.png"],
       techStack:[{ name:"Java",
-        imgSrc:"../../public/java.svg"
+        imgSrc:"./java.svg"
     },{
          name:"mysql",
-        imgSrc:"../../public/mysql.svg"
+        imgSrc:"./mysql.svg"
     },{
          name:"Css",
-        imgSrc:"../../public/css3.svg"
+        imgSrc:"./css3.svg"
     },{
          name: "Html",
-      imgSrc: "../../public/html5.svg",
+      imgSrc: "./html5.svg",
     }]
   },
   {
     title: "Capstone Generator Ideas",
     description: "Built a ReactJS application that uses the Groq API to generate innovative IT capstone project ideas, including titles, descriptions, and recommended tech stacks. Utilized axios for API integration and handled asynchronous data fetching with async/await in React. Check out the live ",
-    thumbnailSrc: "../../public/capstone-generator.png",
+    thumbnailSrc: "./capstone-generator.png",
     liveLink: "https://innocapstone.vercel.app",
-    images: ["../../public/capstone-generator.png"],
+    images: ["./capstone-generator.png"],
     techStack:[{   name:"reactjs",
-        imgSrc:"../../public/react.svg"
+        imgSrc:"./react.svg"
     },{
              name:"tailwind",
-        imgSrc:"../../public/tailwindcss.svg"
+        imgSrc:"./tailwindcss.svg"
     }]
   },
 ];
