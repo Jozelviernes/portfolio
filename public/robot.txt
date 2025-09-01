@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://jozelviernes.vercel.app/sitemap.xml
