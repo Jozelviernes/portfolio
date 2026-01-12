@@ -36,6 +36,23 @@ export function Hero() {
         <div className="absolute left-[30%] top-[30%] h-2 w-2 rounded-full bg-violet-300/60" />
         <div className="absolute right-[34%] top-[38%] h-2 w-2 rounded-full bg-indigo-300/60" />
         <div className="absolute right-[18%] bottom-[22%] h-2 w-2 rounded-full bg-violet-300/60" />
+
+        
+{/*       
+        <div className="absolute left-[30%] top-[30%] h-2 w-2 rounded-full bg-violet-300/60" />
+        <div className="absolute right-[34%] top-[38%] h-2 w-2 rounded-full bg-indigo-300/60" />
+        <div className="absolute right-[18%] bottom-[22%] h-2 w-2 rounded-full bg-violet-300/60" />
+
+        
+      
+        <div className="absolute left-[30%] top-[30%] h-2 w-2 rounded-full bg-violet-300/60" />
+        <div className="absolute right-[34%] top-[38%] h-2 w-2 rounded-full bg-indigo-300/60" />
+        <div className="absolute right-[18%] bottom-[22%] h-2 w-2 rounded-full bg-violet-300/60" />
+        
+      
+        <div className="absolute left-[30%] top-[30%] h-2 w-2 rounded-full bg-violet-300/60" />
+        <div className="absolute right-[34%] top-[38%] h-2 w-2 rounded-full bg-indigo-300/60" />
+        <div className="absolute right-[18%] bottom-[22%] h-2 w-2 rounded-full bg-violet-300/60" /> */}
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">

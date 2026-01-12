@@ -1,7 +1,11 @@
 // ProjectsSection.js
 import { useState } from "react";
-import { Dialog, DialogTrigger, DialogContent, DialogClose } 
-from "@/components/ui/dialog";
+import {
+  Dialog,
+  DialogTrigger,
+  DialogContent,
+  DialogClose,
+} from "@/components/ui/dialog";
 
 import {
   Carousel,
@@ -48,15 +52,15 @@ const projects = [
       { name: "tailwind", imgSrc: "./tailwindcss.svg" },
     ],
   },
-   {
+  {
     title: "eHR System – Human Resource Management & Employee Service Portal",
     description:
       "A web-based Human Resource Management System developed using Laravel, MySQL, and TailwindCSS for a local government unit. The system centralizes employee profiles, leave requests, deductions, service records, job postings, and reports into a secure, role-based platform. It streamlines HR operations, improves data accuracy, and supports data-driven decision-making through automated reports and analytics.",
     thumbnailSrc: "./ehr1.png",
-    images: ["./ehr1.png","./ehr2.png"],
+    images: ["./ehr1.png", "./ehr2.png"],
     techStack: [
       { name: "Laravel", imgSrc: "./laravel.svg" },
-        { name: "mysql", imgSrc: "./mysql.svg" },
+      { name: "mysql", imgSrc: "./mysql.svg" },
       { name: "tailwind", imgSrc: "./tailwindcss.svg" },
     ],
   },
@@ -164,17 +168,18 @@ export function ProjectsSection() {
                   </div>
                 </div>
 
-           <DialogContent
-  className="
+                <DialogContent
+                  onCloseAutoFocus={(e) => e.preventDefault()}
+                  className="
     !max-w-none p-0 border-none shadow-none
     w-screen h-screen sm:w-[85vw] sm:h-[75vh] lg:w-[60vw] lg:h-[60vh]
     bg-transparent
     flex items-center justify-center
   "
->
-  <DialogClose asChild>
-    <button
-      className="
+                >
+                  <DialogClose asChild>
+                    <button
+                      className="
         absolute top-4 right-4 z-50
         rounded-full bg-white/90 p-2
         text-gray-800 text-lg
@@ -182,68 +187,62 @@ export function ProjectsSection() {
         hover:bg-white
         focus:outline-none focus:ring-2 focus:ring-violet-400
       "
-      aria-label="Close"
-    >
-      ✕
-    </button>
-  </DialogClose>
+                      aria-label="Close"
+                    >
+                      ✕
+                    </button>
+                  </DialogClose>
 
-  <div className="flex items-center justify-center">
-   <Carousel
-  key={carouselImages.join("-")}
-  opts={{ loop: carouselImages.length > 1 }}
-  className="relative"
->
-
-      {/* ✅ IMPORTANT: make it flex */}
-      <CarouselContent className="flex items-center">
-        {carouselImages.map((src, i) => (
-          <CarouselItem
-            key={i}
-            /* ✅ IMPORTANT: one slide per view */
-            className="basis-full flex items-center justify-center"
-          >
-            <img
-              src={src}
-              alt={`Slide ${i + 1}`}
-              className="
+                  <div className="flex items-center justify-center">
+                    <Carousel
+                      key={carouselImages.join("-")}
+                      opts={{ loop: carouselImages.length > 1 }}
+                      className="relative"
+                    >
+                      {/* ✅ IMPORTANT: make it flex */}
+                      <CarouselContent className="flex items-center">
+                        {carouselImages.map((src, i) => (
+                          <CarouselItem
+                            key={i}
+                            /* ✅ IMPORTANT: one slide per view */
+                            className="basis-full flex items-center justify-center"
+                          >
+                            <img
+                              src={src}
+                              alt={`Slide ${i + 1}`}
+                              className="
                 max-w-[90vw] sm:max-w-[80vw] lg:max-w-[55vw]
                 max-h-[85vh] sm:max-h-[70vh] lg:max-h-[55vh]
                 object-contain
               "
-            />
-          </CarouselItem>
-        ))}
-      </CarouselContent>
+                            />
+                          </CarouselItem>
+                        ))}
+                      </CarouselContent>
 
-      {/* ✅ optional: only show if multiple images */}
-      {carouselImages.length > 1 && (
-        <>
-          <CarouselPrevious
-  className="
+                      {/* ✅ optional: only show if multiple images */}
+                      {carouselImages.length > 1 && (
+                        <>
+                          <CarouselPrevious
+                            className="
     absolute left-2 top-1/2 -translate-y-1/2
     z-50
     bg-white/90 hover:bg-white
   "
-/>
+                          />
 
-<CarouselNext
-  className="
+                          <CarouselNext
+                            className="
     absolute right-2 top-1/2 -translate-y-1/2
     z-50
     bg-white/90 hover:bg-white
   "
-/>
-
-        </>
-      )}
-    </Carousel>
-  </div>
-</DialogContent>
-
-
-
-
+                          />
+                        </>
+                      )}
+                    </Carousel>
+                  </div>
+                </DialogContent>
               </Dialog>
             </div>
           );
