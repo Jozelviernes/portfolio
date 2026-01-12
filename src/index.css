@@ -1,7 +1,4 @@
 @import "tailwindcss";
-
-@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap');
-
 @import "tw-animate-css";
 
 @custom-variant dark (&:is(.dark *));
@@ -9,24 +6,69 @@
 body {
   margin: 0;
   padding: 0;
-  font-family: 'Inter', sans-serif;
+  font-family: "Inter", sans-serif;
 }
+
+/* Optional blob shape */
 .custom-shape {
-  border-radius: 71% 29% 22% 78% / 67% 73% 27% 33%  ;
-  overflow: hidden; /* to clip the image inside the shape */
+  border-radius: 71% 29% 22% 78% / 67% 73% 27% 33%;
+  overflow: hidden;
 }
-@keyframes slideRight {
-  0% {
-    transform: translateX(-50%);
+
+/* ✅ Techstack Marquee (works on ALL screen sizes) */
+.tech-marquee {
+  display: flex;
+  width: max-content;
+  gap: 12px;
+  animation: tech-scroll 18s linear infinite;
+  will-change: transform;
+}
+
+.tech-track {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* pause when hover (desktop) */
+.tech-marquee:hover {
+  animation-play-state: paused;
+}
+
+/* Infinite scroll animation */
+@keyframes tech-scroll {
+  from {
+    transform: translateX(0);
   }
-  100% {
-    transform: translateX(0%);
+  to {
+    transform: translateX(-50%);
   }
 }
 
-.animate-slideRight {
-  animation: slideRight 20s linear infinite;
-  will-change: transform;
+/* slower on large screens (optional) */
+@media (min-width: 1024px) {
+  .tech-marquee {
+    animation-duration: 22s;
+  }
+}
+
+/* accessibility */
+@media (prefers-reduced-motion: reduce) {
+  .tech-marquee {
+    animation: none;
+  }
+}
+/* Make Radix Dialog close (X) visible on transparent backgrounds */
+[data-radix-dialog-close] {
+  color: #111827; /* gray-900 */
+  background: rgba(255, 255, 255, 0.9);
+  border-radius: 9999px;
+  padding: 6px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+}
+
+[data-radix-dialog-close]:hover {
+  background: #ffffff;
 }
 
 @theme inline {
