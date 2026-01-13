@@ -16,6 +16,18 @@ import {
 } from "@/components/ui/carousel";
 
 const projects = [
+    {
+    title: "eHR System – Human Resource Management & Employee Service Portal",
+    description:
+      "A web-based Human Resource Management System developed using Laravel, MySQL, and TailwindCSS for a local government unit. The system centralizes employee profiles, leave requests, deductions, service records, job postings, and reports into a secure, role-based platform. It streamlines HR operations, improves data accuracy, and supports data-driven decision-making through automated reports and analytics.",
+    thumbnailSrc: "./ehr1.png",
+    images: ["./ehr0.png", "./ehr1.png", "./ehr2.png"],
+    techStack: [
+      { name: "Laravel", imgSrc: "./laravel.svg" },
+      { name: "mysql", imgSrc: "./mysql.svg" },
+      { name: "tailwind", imgSrc: "./tailwindcss.svg" },
+    ],
+  },
   {
     title: "Enrollment System (Techroll)",
     description:
@@ -27,6 +39,21 @@ const projects = [
       { name: "mysql", imgSrc: "./mysql.svg" },
     ],
   },
+  {
+  title: "Accounting Firm Website (ADAM Co.)",
+  description:
+    "Developed a modern, responsive website for a professional accounting firm to showcase its services, company values, and client engagement features. The project was paid work for students conducting their research, and includes an interactive contact form with serverless email handling, smooth section animations, and a clean, executive-style UI optimized for performance and accessibility.",
+  thumbnailSrc: "./adam1.png",
+   liveLink: "https://adamco.vercel.app/",
+  images: ["./adam1.png", "./adam2.png", "./adam3.png"],
+  techStack: [
+    { name: "reactjs", imgSrc: "./react.svg" },
+   
+    { name: "tailwindcss", imgSrc: "./tailwind.svg" },
+   
+  ],
+},
+
   {
     title: "ASCOT Scholarship Management System",
     description:
@@ -52,18 +79,7 @@ const projects = [
       { name: "tailwind", imgSrc: "./tailwindcss.svg" },
     ],
   },
-  {
-    title: "eHR System – Human Resource Management & Employee Service Portal",
-    description:
-      "A web-based Human Resource Management System developed using Laravel, MySQL, and TailwindCSS for a local government unit. The system centralizes employee profiles, leave requests, deductions, service records, job postings, and reports into a secure, role-based platform. It streamlines HR operations, improves data accuracy, and supports data-driven decision-making through automated reports and analytics.",
-    thumbnailSrc: "./ehr1.png",
-    images: ["./ehr1.png", "./ehr2.png"],
-    techStack: [
-      { name: "Laravel", imgSrc: "./laravel.svg" },
-      { name: "mysql", imgSrc: "./mysql.svg" },
-      { name: "tailwind", imgSrc: "./tailwindcss.svg" },
-    ],
-  },
+
 ];
 
 export function ProjectsSection() {
@@ -108,65 +124,69 @@ export function ProjectsSection() {
                   </button>
                 </DialogTrigger>
 
-                <div className="mt-4">
-                  {/* ✅ Prevent title overflow (ellipsis) */}
-                  <h3 className="text-xl font-semibold truncate">
-                    {project.title}
-                  </h3>
+               <div className="mt-4">
+  {/* ✅ Prevent title overflow */}
+<h3 className="text-xl font-semibold break-words">
+  {project.title}
+</h3>
 
-                  {/* ✅ Description: clamp on mobile (shows "...") */}
-                  <p
-                    className={[
-                      "text-gray-600 mt-3 text-sm sm:text-base",
-                      isExpanded ? "" : "line-clamp-3 sm:line-clamp-none",
-                    ].join(" ")}
-                  >
-                    {project.description}
-                  </p>
 
-                  {/* ✅ Read more only on mobile when clamped */}
-                  <div className="sm:hidden mt-2">
-                    <button
-                      type="button"
-                      onClick={() =>
-                        setExpanded((prev) => ({ ...prev, [idx]: !prev[idx] }))
-                      }
-                      className="text-violet-600 text-sm font-medium hover:underline"
-                    >
-                      {isExpanded ? "Show less" : "Read more"}
-                    </button>
-                  </div>
+  {/* ✅ Description: clamp on ALL screens */}
+  <p
+    className={[
+      "text-gray-600 mt-3 text-sm sm:text-base transition-all",
+      isExpanded
+        ? ""
+        : "line-clamp-3 sm:line-clamp-3 lg:line-clamp-4",
+    ].join(" ")}
+  >
+    {project.description}
+  </p>
 
-                  {project.liveLink && (
-                    <a
-                      href={project.liveLink}
-                      target="_blank"
-                      rel="noopener noreferrer"
-                      className="inline-block mt-3 text-blue-500 underline"
-                    >
-                      Live Preview
-                    </a>
-                  )}
+  {/* ✅ Read more / Show less (mobile + desktop) */}
+  <div className="mt-2">
+    <button
+      type="button"
+      onClick={() =>
+        setExpanded((prev) => ({ ...prev, [idx]: !prev[idx] }))
+      }
+      className="text-violet-600 text-sm font-medium hover:underline"
+    >
+      {isExpanded ? "Show less" : "Read more"}
+    </button>
+  </div>
 
-                  <div className="flex flex-wrap gap-3 mt-4">
-                    {project.techStack?.map((tech) => (
-                      <div
-                        key={tech.name}
-                        className="flex items-center gap-2 border-2 border-gray-300 px-3 py-2 rounded-lg"
-                      >
-                        <img
-                          src={tech.imgSrc}
-                          alt={tech.name}
-                          className="w-6 h-6 object-contain"
-                        />
-                        {/* ✅ Ellipsis for tech name too */}
-                        <span className="text-sm text-gray-700 truncate max-w-[90px]">
-                          {tech.name}
-                        </span>
-                      </div>
-                    ))}
-                  </div>
-                </div>
+  {project.liveLink && (
+    <a
+      href={project.liveLink}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="inline-block mt-3 text-blue-500 underline"
+    >
+      Live Preview
+    </a>
+  )}
+
+  <div className="flex flex-wrap gap-3 mt-4">
+    {project.techStack?.map((tech) => (
+      <div
+        key={tech.name}
+        className="flex items-center gap-2 border-2 border-gray-300 px-3 py-2 rounded-lg max-w-full"
+      >
+        <img
+          src={tech.imgSrc}
+          alt={tech.name}
+          className="w-6 h-6 object-contain"
+        />
+        {/* ✅ Tech name ellipsis */}
+        <span className="text-sm text-gray-700 truncate max-w-[90px]">
+          {tech.name}
+        </span>
+      </div>
+    ))}
+  </div>
+</div>
+
 
                 <DialogContent
                   onCloseAutoFocus={(e) => e.preventDefault()}
