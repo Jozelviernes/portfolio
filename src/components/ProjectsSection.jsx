@@ -1,22 +1,18 @@
 // ProjectsSection.js
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import {
   Dialog,
   DialogTrigger,
   DialogContent,
   DialogClose,
+DialogTitle,
+DialogDescription,
 } from "@/components/ui/dialog";
+ import { VisuallyHidden } from "@radix-ui/react-visually-hidden";
 
-import {
-  Carousel,
-  CarouselContent,
-  CarouselItem,
-  CarouselNext,
-  CarouselPrevious,
-} from "@/components/ui/carousel";
 
 const projects = [
-    {
+  {
     title: "eHR System – Human Resource Management & Employee Service Portal",
     description:
       "A web-based Human Resource Management System developed using Laravel, MySQL, and TailwindCSS for a local government unit. The system centralizes employee profiles, leave requests, deductions, service records, job postings, and reports into a secure, role-based platform. It streamlines HR operations, improves data accuracy, and supports data-driven decision-making through automated reports and analytics.",
@@ -40,20 +36,17 @@ const projects = [
     ],
   },
   {
-  title: "Accounting Firm Website (ADAM Co.)",
-  description:
-    "Developed a modern, responsive website for a professional accounting firm to showcase its services, company values, and client engagement features. The project was paid work for students conducting their research, and includes an interactive contact form with serverless email handling, smooth section animations, and a clean, executive-style UI optimized for performance and accessibility.",
-  thumbnailSrc: "./adam1.png",
-   liveLink: "https://adamco.vercel.app/",
-  images: ["./adam1.png", "./adam2.png", "./adam3.png"],
-  techStack: [
-    { name: "reactjs", imgSrc: "./react.svg" },
-   
-    { name: "tailwindcss", imgSrc: "./tailwind.svg" },
-   
-  ],
-},
-
+    title: "Accounting Firm Website (ADAM Co.)",
+    description:
+      "Developed a modern, responsive website for a professional accounting firm to showcase its services, company values, and client engagement features. The project was paid work for students conducting their research, and includes an interactive contact form with serverless email handling, smooth section animations, and a clean, executive-style UI optimized for performance and accessibility.",
+    thumbnailSrc: "./adam1.png",
+    liveLink: "https://adamco.vercel.app/",
+    images: ["./adam1.png", "./adam2.png", "./adam3.png"],
+    techStack: [
+      { name: "reactjs", imgSrc: "./react.svg" },
+      { name: "tailwindcss", imgSrc: "./tailwindcss.svg" },
+    ],
+  },
   {
     title: "ASCOT Scholarship Management System",
     description:
@@ -79,15 +72,42 @@ const projects = [
       { name: "tailwind", imgSrc: "./tailwindcss.svg" },
     ],
   },
-
 ];
 
 export function ProjectsSection() {
   const [carouselImages, setCarouselImages] = useState([]);
   const [open, setOpen] = useState(false);
 
+  // ✅ NEW: track current slide index (next/back logic)
+  const [currentSlide, setCurrentSlide] = useState(0);
+
   // ✅ track which cards are expanded (for "Read more")
   const [expanded, setExpanded] = useState({});
+
+  // ✅ NEW: next/back logic using modulo
+  const prevSlide = () => {
+    setCurrentSlide(
+      (p) => (p - 1 + carouselImages.length) % carouselImages.length
+    );
+  };
+
+  const nextSlide = () => {
+    setCurrentSlide((p) => (p + 1) % carouselImages.length);
+  };
+
+  // ✅ OPTIONAL: keyboard controls
+  useEffect(() => {
+    if (!open || carouselImages.length === 0) return;
+
+    const onKeyDown = (e) => {
+      if (e.key === "Escape") setOpen(false);
+      if (carouselImages.length > 1 && e.key === "ArrowLeft") prevSlide();
+      if (carouselImages.length > 1 && e.key === "ArrowRight") nextSlide();
+    };
+
+    window.addEventListener("keydown", onKeyDown);
+    return () => window.removeEventListener("keydown", onKeyDown);
+  }, [open, carouselImages.length]);
 
   return (
     <section className="max-w-7xl mx-auto p-4 sm:p-8" id="projects">
@@ -112,6 +132,7 @@ export function ProjectsSection() {
                     className="w-full"
                     onClick={() => {
                       setCarouselImages(project.images);
+                      setCurrentSlide(0); // ✅ NEW: always start at first image
                       setOpen(true);
                     }}
                     aria-label={`Open images for ${project.title}`}
@@ -124,143 +145,149 @@ export function ProjectsSection() {
                   </button>
                 </DialogTrigger>
 
-               <div className="mt-4">
-  {/* ✅ Prevent title overflow */}
-<h3 className="text-xl font-semibold break-words">
-  {project.title}
-</h3>
+                <div className="mt-4">
+                  {/* ✅ Prevent title overflow */}
+                  <h3 className="text-xl font-semibold break-words">
+                    {project.title}
+                  </h3>
 
+                  {/* ✅ Description: clamp on ALL screens */}
+                  <p
+                    className={[
+                      "text-gray-600 mt-3 text-sm sm:text-base transition-all",
+                      isExpanded
+                        ? ""
+                        : "line-clamp-3 sm:line-clamp-3 lg:line-clamp-4",
+                    ].join(" ")}
+                  >
+                    {project.description}
+                  </p>
 
-  {/* ✅ Description: clamp on ALL screens */}
-  <p
-    className={[
-      "text-gray-600 mt-3 text-sm sm:text-base transition-all",
-      isExpanded
-        ? ""
-        : "line-clamp-3 sm:line-clamp-3 lg:line-clamp-4",
-    ].join(" ")}
-  >
-    {project.description}
-  </p>
+                  {/* ✅ Read more / Show less (mobile + desktop) */}
+                  <div className="mt-2">
+                    <button
+                      type="button"
+                      onClick={() =>
+                        setExpanded((prev) => ({ ...prev, [idx]: !prev[idx] }))
+                      }
+                      className="text-violet-600 text-sm font-medium hover:underline"
+                    >
+                      {isExpanded ? "Show less" : "Read more"}
+                    </button>
+                  </div>
 
-  {/* ✅ Read more / Show less (mobile + desktop) */}
-  <div className="mt-2">
-    <button
-      type="button"
-      onClick={() =>
-        setExpanded((prev) => ({ ...prev, [idx]: !prev[idx] }))
-      }
-      className="text-violet-600 text-sm font-medium hover:underline"
-    >
-      {isExpanded ? "Show less" : "Read more"}
-    </button>
-  </div>
+                  {project.liveLink && (
+                    <a
+                      href={project.liveLink}
+                      target="_blank"
+                      rel="noopener noreferrer"
+                      className="inline-block mt-3 text-blue-500 underline"
+                    >
+                      Live Preview
+                    </a>
+                  )}
 
-  {project.liveLink && (
-    <a
-      href={project.liveLink}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="inline-block mt-3 text-blue-500 underline"
-    >
-      Live Preview
-    </a>
-  )}
-
-  <div className="flex flex-wrap gap-3 mt-4">
-    {project.techStack?.map((tech) => (
-      <div
-        key={tech.name}
-        className="flex items-center gap-2 border-2 border-gray-300 px-3 py-2 rounded-lg max-w-full"
-      >
-        <img
-          src={tech.imgSrc}
-          alt={tech.name}
-          className="w-6 h-6 object-contain"
-        />
-        {/* ✅ Tech name ellipsis */}
-        <span className="text-sm text-gray-700 truncate max-w-[90px]">
-          {tech.name}
-        </span>
-      </div>
-    ))}
-  </div>
-</div>
-
-
+                  <div className="flex flex-wrap gap-3 mt-4">
+                    {project.techStack?.map((tech) => (
+                      <div
+                        key={tech.name}
+                        className="flex items-center gap-2 border-2 border-gray-300 px-3 py-2 rounded-lg max-w-full"
+                      >
+                        <img
+                          src={tech.imgSrc}
+                          alt={tech.name}
+                          className="w-6 h-6 object-contain"
+                        />
+                        {/* ✅ Tech name ellipsis */}
+                        <span className="text-sm text-gray-700 truncate max-w-[90px]">
+                          {tech.name}
+                        </span>
+                      </div>
+                    ))}
+                  </div>
+                </div>
+               
                 <DialogContent
                   onCloseAutoFocus={(e) => e.preventDefault()}
                   className="
-    !max-w-none p-0 border-none shadow-none
-    w-screen h-screen sm:w-[85vw] sm:h-[75vh] lg:w-[60vw] lg:h-[60vh]
-    bg-transparent
-    flex items-center justify-center
-  "
+  !max-w-none p-0 border-none shadow-none
+  w-screen h-screen sm:w-[85vw] sm:h-[75vh] lg:w-[60vw] lg:h-[60vh]
+  bg-transparent
+  flex items-center justify-center
+"
                 >
+                   <VisuallyHidden>
+    <DialogTitle>Project images preview</DialogTitle>
+    <DialogDescription>
+      Browse project screenshots using next and previous buttons.
+    </DialogDescription>
+  </VisuallyHidden>
+
+
                   <DialogClose asChild>
                     <button
                       className="
-        absolute top-4 right-4 z-50
-        rounded-full bg-white/90 p-2
-        text-gray-800 text-lg
-        shadow-md
-        hover:bg-white
-        focus:outline-none focus:ring-2 focus:ring-violet-400
-      "
+                        absolute top-4 right-4 z-50
+                        rounded-full bg-white/90 p-2
+                        text-gray-800 text-lg
+                        shadow-md
+                        hover:bg-white
+                        focus:outline-none focus:ring-2 focus:ring-violet-400
+                      "
                       aria-label="Close"
                     >
                       ✕
                     </button>
                   </DialogClose>
 
-                  <div className="flex items-center justify-center">
-                    <Carousel
-                      key={carouselImages.join("-")}
-                      opts={{ loop: carouselImages.length > 1 }}
-                      className="relative"
-                    >
-                      {/* ✅ IMPORTANT: make it flex */}
-                      <CarouselContent className="flex items-center">
-                        {carouselImages.map((src, i) => (
-                          <CarouselItem
-                            key={i}
-                            /* ✅ IMPORTANT: one slide per view */
-                            className="basis-full flex items-center justify-center"
-                          >
-                            <img
-                              src={src}
-                              alt={`Slide ${i + 1}`}
-                              className="
-                max-w-[90vw] sm:max-w-[80vw] lg:max-w-[55vw]
-                max-h-[85vh] sm:max-h-[70vh] lg:max-h-[55vh]
-                object-contain
-              "
-                            />
-                          </CarouselItem>
-                        ))}
-                      </CarouselContent>
+                  {/* ✅ UPDATED: one image only + next/back */}
+                  <div className="relative flex items-center justify-center w-full">
+                    {carouselImages.length > 0 && (
+                      <img
+                        src={carouselImages[currentSlide]}
+                        alt={`Slide ${currentSlide + 1}`}
+                        className="
+                          max-w-[90vw] sm:max-w-[80vw] lg:max-w-[55vw]
+                          max-h-[85vh] sm:max-h-[70vh] lg:max-h-[55vh]
+                          object-contain
+                        "
+                      />
+                    )}
 
-                      {/* ✅ optional: only show if multiple images */}
-                      {carouselImages.length > 1 && (
-                        <>
-                          <CarouselPrevious
-                            className="
-    absolute left-2 top-1/2 -translate-y-1/2
-    z-50
-    bg-white/90 hover:bg-white
-  "
-                          />
+                    {/* ✅ Show buttons only if multiple images */}
+                    {carouselImages.length > 1 && (
+                      <>
+                        <button
+                          type="button"
+                          onClick={prevSlide}
+                          className="
+                            absolute left-2 top-1/2 -translate-y-1/2 z-50
+                            bg-white/90 hover:bg-white
+                            rounded-full w-11 h-11
+                            flex items-center justify-center
+                            shadow-md
+                          "
+                          aria-label="Previous image"
+                        >
+                          ‹
+                        </button>
 
-                          <CarouselNext
-                            className="
-    absolute right-2 top-1/2 -translate-y-1/2
-    z-50
-    bg-white/90 hover:bg-white
-  "
-                          />
-                        </>
-                      )}
-                    </Carousel>
+                        <button
+                          type="button"
+                          onClick={nextSlide}
+                          className="
+                            absolute right-2 top-1/2 -translate-y-1/2 z-50
+                            bg-white/90 hover:bg-white
+                            rounded-full w-11 h-11
+                            flex items-center justify-center
+                            shadow-md
+                          "
+                          aria-label="Next image"
+                        >
+                          ›
+                        </button>
+                      </>
+                    )}
                   </div>
                 </DialogContent>
               </Dialog>
