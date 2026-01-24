@@ -24,18 +24,7 @@ const projects = [
       { name: "tailwind", imgSrc: "./tailwindcss.svg" },
     ],
   },
-  {
-    title: "Enrollment System (Techroll)",
-    description:
-      "Enrollment SystemDesigned and implemented a web-based enrollment system using PHP and MySQL to streamline student registration and subject enrollment processes. Key features include user authentication, specialization selection (Application Programming or Digital Design), admin approval workflows, and automated PDF report generation using mPDF. The system enhances administrative efficiency and improves student onboarding.",
-    thumbnailSrc: "./techroll.png",
-    images: ["./techroll.png", "./techroll1.png"],
-    techStack: [
-      { name: "php", imgSrc: "./php.svg" },
-      { name: "mysql", imgSrc: "./mysql.svg" },
-    ],
-  },
-  {
+    {
     title: "Accounting Firm Website (ADAM Co.)",
     description:
       "Developed a modern, responsive website for a professional accounting firm to showcase its services, company values, and client engagement features. The project was paid work for students conducting their research, and includes an interactive contact form with serverless email handling, smooth section animations, and a clean, executive-style UI optimized for performance and accessibility.",
@@ -47,6 +36,31 @@ const projects = [
       { name: "tailwindcss", imgSrc: "./tailwindcss.svg" },
     ],
   },
+    {
+    title: "CleanPro",
+    description:
+      "CleanPro is a responsive cleaning services website that allows customers to browse available services, view pricing and details, and submit booking or inquiry requests through an interactive form. All requests are securely stored and managed through an admin-ready backend, helping service providers efficiently track and respond to customer inquiries.",
+    thumbnailSrc: "./cleanpro1.png",
+    liveLink: "https://cleanproweb.vercel.app/",
+    images: ["./cleanpro1.png", "./cleanpro2.png", "./cleanpro3.png"],
+    techStack: [
+      { name: "reactjs", imgSrc: "./react.svg" },
+      { name: "supabase", imgSrc: "./supabase.png" },
+      { name: "tailwindcss", imgSrc: "./tailwindcss.svg" },
+    ],
+  },
+  {
+    title: "Enrollment System (Techroll)",
+    description:
+      "Enrollment SystemDesigned and implemented a web-based enrollment system using PHP and MySQL to streamline student registration and subject enrollment processes. Key features include user authentication, specialization selection (Application Programming or Digital Design), admin approval workflows, and automated PDF report generation using mPDF. The system enhances administrative efficiency and improves student onboarding.",
+    thumbnailSrc: "./techroll.png",
+    images: ["./techroll.png", "./techroll1.png"],
+    techStack: [
+      { name: "php", imgSrc: "./php.svg" },
+      { name: "mysql", imgSrc: "./mysql.svg" },
+    ],
+  },
+
   {
     title: "ASCOT Scholarship Management System",
     description:
