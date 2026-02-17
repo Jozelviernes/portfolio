@@ -36,9 +36,6 @@ export function Hero() {
         <div className="absolute left-[30%] top-[30%] h-2 w-2 rounded-full bg-violet-300/60" />
         <div className="absolute right-[34%] top-[38%] h-2 w-2 rounded-full bg-indigo-300/60" />
         <div className="absolute right-[18%] bottom-[22%] h-2 w-2 rounded-full bg-violet-300/60" />
-
-        
-
       </div>
 
       <div className="relative mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -75,9 +72,9 @@ export function Hero() {
               data-aos="fade-up"
               data-aos-delay="200"
             >
-              I build clean, user-friendly web apps—from modern UI to reliable backend systems.
-              I enjoy turning ideas into working products with good design, performance, and
-              maintainable code.
+              I build clean, user-friendly web apps—from modern UI to reliable
+              backend systems. I enjoy turning ideas into working products with
+              good design, performance, and maintainable code.
             </p>
 
             {/* CTA buttons */}
@@ -87,12 +84,12 @@ export function Hero() {
               data-aos-delay="260"
             >
               <a
-  href="/cv_developer.pdf"
-  download="Jozel_Viernes_CV.pdf"
-  className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-violet-200 transition hover:bg-violet-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-offset-2"
->
-  Download CV
-</a>
+                href="/Viernes_dev.pdf"
+                download="Jozel_Viernes_CV.pdf"
+                className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-violet-200 transition hover:bg-violet-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-offset-2"
+              >
+                Download CV
+              </a>
 
               <a
                 href="#contacts"
@@ -109,7 +106,9 @@ export function Hero() {
               data-aos-delay="320"
             >
               <div className="rounded-xl border border-gray-200 bg-white/70 p-3 backdrop-blur">
-                <p className="text-sm font-semibold text-gray-900">Full-stack</p>
+                <p className="text-sm font-semibold text-gray-900">
+                  Full-stack
+                </p>
                 <p className="text-xs text-gray-600">End-to-end systems</p>
               </div>
 
@@ -127,7 +126,11 @@ export function Hero() {
 
           {/* Image */}
           <div className="order-1 flex justify-center lg:order-2">
-            <div className="relative" data-aos="zoom-in-up" data-aos-delay="120">
+            <div
+              className="relative"
+              data-aos="zoom-in-up"
+              data-aos-delay="120"
+            >
               {/* ring glow */}
               <div className="absolute -inset-4 rounded-full bg-violet-200/40 blur-2xl" />
 
