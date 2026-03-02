@@ -17,7 +17,7 @@ const projects = [
     description:
       "A web-based Human Resource Management System developed using Laravel, MySQL, and TailwindCSS for a local government unit. The system centralizes employee profiles, leave requests, deductions, service records, job postings, and reports into a secure, role-based platform. It streamlines HR operations, improves data accuracy, and supports data-driven decision-making through automated reports and analytics.",
     thumbnailSrc: "./ehr1.png",
-    images: ["./ehr0.png", "./ehr1.png", "./ehr2.png"],
+    images: ["./hr1.png", "./hr2.png", "./hr3.png"],
     techStack: [
       { name: "Laravel", imgSrc: "./laravel.svg" },
       { name: "mysql", imgSrc: "./mysql.svg" },
