@@ -84,7 +84,7 @@ export function Hero() {
               data-aos-delay="260"
             >
               <a
-                href="/Viernes_dev.pdf"
+                href="/Jozel_dev.pdf"
                 download="Jozel_Viernes_CV.pdf"
                 className="inline-flex items-center justify-center rounded-xl bg-violet-600 px-6 py-3 text-sm font-semibold text-white shadow-md shadow-violet-200 transition hover:bg-violet-700 hover:shadow-lg focus:outline-none focus:ring-2 focus:ring-violet-400 focus:ring-offset-2"
               >
