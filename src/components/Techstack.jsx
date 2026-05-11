@@ -1,14 +1,20 @@
 export function Techstack() {
-  const techs = [
-    { name: "Html", imgSrc: "/html5.svg" },
-    { name: "Css", imgSrc: "/css3.svg" },
-    { name: "Javascript", imgSrc: "/javascript.svg" },
-    { name: "Tailwind", imgSrc: "/tailwindcss.svg" },
-    { name: "Bootstrap", imgSrc: "/bootstrap.svg" },
-    { name: "ReactJS", imgSrc: "/react.svg" },
-    { name: "PHP", imgSrc: "/php.svg" },
-    { name: "MySQL", imgSrc: "/mysql.svg" },
-  ];
+const techs = [
+  { name: "Html", imgSrc: "/html5.svg" },
+  { name: "Css", imgSrc: "/css3.svg" },
+  { name: "Javascript", imgSrc: "/javascript.svg" },
+  { name: "Tailwind", imgSrc: "/tailwindcss.svg" },
+  { name: "Bootstrap", imgSrc: "/bootstrap.svg" },
+  { name: "ReactJS", imgSrc: "/react.svg" },
+  { name: "Next.js", imgSrc: "/nextjs.svg" },
+  { name: "TypeScript", imgSrc: "/typescript.svg" },
+  { name: "PHP", imgSrc: "/php.svg" },
+  { name: "Laravel", imgSrc: "/laravel.svg" },
+  { name: "MySQL", imgSrc: "/mysql.svg" },
+  { name: "Supabase", imgSrc: "/supabase.png" },
+  { name: "Sanity CMS", imgSrc: "/sanity.svg" },
+  { name: "Astro", imgSrc: "/astro.svg" },
+];
 
   return (
     <section className="bg-white max-w-7xl mx-auto mt-9 py-8 sm:py-12 lg:py-15 px-4 sm:px-6 lg:px-7 mb-12 sm:mb-16 lg:mb-20 border border-gray-200 rounded-lg">
